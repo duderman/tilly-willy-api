@@ -1,5 +1,7 @@
-RSpec.describe "Products", type: :request do
-  describe "GET /" do
+# frozen_string_literal: true
+
+RSpec.describe 'Products', type: :request do
+  describe 'GET /' do
     subject { response }
 
     before do

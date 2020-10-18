@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Product do
   subject { build(:product) }
 

@@ -20,10 +20,9 @@ ActiveRecord::Schema.define(version: 2020_10_18_123538) do
     t.integer "code", null: false
     t.string "name", null: false
     t.integer "price_cents", default: 0, null: false
-    t.string "price_currency", default: "GBP", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "index_products_on_code"
+    t.index ["code"], name: "index_products_on_code", unique: true
   end
 
 end
