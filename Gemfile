@@ -25,10 +25,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rack-cors'
 
 gem 'money-rails', '~> 1.12'
+gem 'active_model_serializers', '~> 0.10'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 4.0.1'
 end
 
@@ -45,3 +45,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+group :test do
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'rspec-its', '~> 1.3'
+  gem 'shoulda-matchers', '~> 4.0'
+  gem 'ffaker', '~> 2.17'
+end
