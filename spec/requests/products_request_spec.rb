@@ -8,6 +8,6 @@ RSpec.describe "Products", type: :request do
     end
 
     it { is_expected.to have_http_status(:success) }
-    its(:body) { is_expected.to eq([{ code: '001', name: 'Heart', price: 9.25, currency: 'GBP' }].to_json) }
+    its(:body) { is_expected.to eq([{ code: 1, name: 'Heart', price: 9.25, currency: 'GBP' }].to_json) }
   end
 end
