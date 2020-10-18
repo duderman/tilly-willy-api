@@ -112,3 +112,11 @@ MoneyRails.configure do |config|
   # Example:
   # config.raise_error_on_money_parsing = false
 end
+
+module MoneyHelper
+  def load(cents)
+    Money.new(cents, MoneyRails.default_currency)
+  end
+end
+
+MoneyRails.extend(MoneyHelper)

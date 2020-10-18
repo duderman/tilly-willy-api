@@ -12,3 +12,6 @@ Style/Documentation:
 
 Style/AsciiComments:
   Enabled: false
+
+RSpec/ImplicitSubject:
+  Enabled: false
