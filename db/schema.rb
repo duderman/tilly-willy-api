@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 2020_10_19_085537) do
     t.uuid "discount_id"
     t.integer "price_cents", null: false
     t.string "price_currency", default: "GBP", null: false
-    t.integer "discount_price_cents"
-    t.string "discount_price_currency", default: "GBP", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["checkout_id"], name: "index_checkout_items_on_checkout_id"

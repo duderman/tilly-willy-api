@@ -9,6 +9,22 @@ class Discount < ApplicationRecord
                                          allow_nil: true }
   validate :discount_amount_configured
 
+  def filter_items(_items)
+    raise NotImplemented
+  end
+
+  def coefficent
+    percentage.to_i / 100.0
+  end
+
+  def calculate_price(price)
+    if percentage
+      price - price * coefficent
+    else
+      self.price
+    end
+  end
+
   private
 
   def discount_amount_configured

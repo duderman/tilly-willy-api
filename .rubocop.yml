@@ -18,4 +18,8 @@ RSpec/ImplicitSubject:
 
 Lint/MissingSuper:
   Exclude:
-    - app/services/add_product_to_checkout.rb
+    - app/services/**/*.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*_spec.rb

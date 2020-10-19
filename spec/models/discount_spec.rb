@@ -23,4 +23,38 @@ RSpec.describe Discount do
     discount.validate
     expect(discount.errors[:base]).to include('should have either percentage or price configured')
   end
+
+  describe '#coefficent' do
+    subject { discount.coefficent }
+
+    let(:discount) { described_class.new(percentage: percentage) }
+    let(:percentage) { 10 }
+
+    it { is_expected.to eq(0.1) }
+
+    context 'when percentage is nil' do
+      let(:percentage) { nil }
+
+      it { is_expected.to eq(0) }
+    end
+  end
+
+  describe '#calculate_price' do
+    subject { discount.calculate_price(price) }
+
+    let(:price) { MoneyHelper.convert(100) }
+
+    context 'when discount is based on percentage' do
+      let(:discount) { described_class.new(percentage: 10) }
+
+      it { is_expected.to eq(MoneyHelper.convert(90)) }
+    end
+
+    context 'when discount is price based' do
+      let(:discount) { described_class.new(price: discount_price) }
+      let(:discount_price) { MoneyHelper.convert(9.99) }
+
+      it { is_expected.to eql(discount_price) }
+    end
+  end
 end

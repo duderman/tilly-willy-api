@@ -7,7 +7,6 @@ class CreateCheckoutItems < ActiveRecord::Migration[6.0]
       t.references :product, type: :uuid, null: false, foreign_key: true
       t.references :discount, type: :uuid, foreign_key: true
       t.monetize :price, amount: { default: nil }
-      t.monetize :discount_price, amount: { null: true, default: nil }
 
       t.timestamps
     end
