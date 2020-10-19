@@ -14,6 +14,8 @@ RSpec.describe RecalculateDiscounts do
     call
   end
 
+  it { is_expected.to eq([item]) }
+
   it 'recalculates discounts from scratch applying quantity discounts first' do
     expect(item.price.cents).to eq(162)
   end

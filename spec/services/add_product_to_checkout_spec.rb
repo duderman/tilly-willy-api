@@ -21,4 +21,6 @@ RSpec.describe AddProductToCheckout do
     call
     expect(CheckoutItem.last.price).to eq(product.price)
   end
+
+  it_behaves_like 'recalculates discounts'
 end

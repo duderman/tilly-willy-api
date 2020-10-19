@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-class AddProductToCheckout < ApplicationService
-  attr_reader :product, :checkout
+class AddProductToCheckout < CheckoutModifier
+  attr_reader :product
 
   def initialize(product, checkout)
+    super(checkout)
     @product = product
-    @checkout = checkout
   end
 
-  def call
+  def modify_checkout
     checkout.items << item
-    checkout
   end
 
   private
