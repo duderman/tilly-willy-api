@@ -1,13 +1,7 @@
 # frozen_string_literal: true
 
 class ProductSerializer < ApplicationSerializer
+  include MoneySerializerHelper
+
   attributes :code, :name, :price, :currency
-
-  def price
-    object.price.to_f
-  end
-
-  def currency
-    object.price.currency.to_s
-  end
 end

@@ -7,6 +7,7 @@ RSpec.describe ItemSerializer do
   let(:item) { build(:checkout_item, id: SecureRandom.uuid, product_id: SecureRandom.uuid) }
 
   its([:id]) { is_expected.to eq(item.id) }
-  its([:price]) { is_expected.to eq(item.price) }
+  its([:price]) { is_expected.to eq(item.price.to_f) }
+  its([:currency]) { is_expected.to eq(item.price.currency.to_s) }
   its([:product_id]) { is_expected.to eq(item.product_id) }
 end
