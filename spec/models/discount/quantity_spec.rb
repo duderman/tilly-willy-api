@@ -35,4 +35,12 @@ RSpec.describe Discount::Quantity do
       it { is_expected.to eq([]) }
     end
   end
+
+  describe '#rules' do
+    subject { discount.rules }
+
+    let(:discount) { build(:quantity_discount, product_id: SecureRandom.uuid, quantity: 2) }
+
+    it { is_expected.to eq(product_id: discount.product_id, quantity: 2) }
+  end
 end

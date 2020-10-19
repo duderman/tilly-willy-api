@@ -7,8 +7,8 @@ FactoryBot.define do
         items_count { 1 }
       end
 
-      after(:create) do |checkout, evaluator|
-        checkout.items = create_list(:checkout_item, evaluator.items_count, checkout: checkout)
+      after(:build) do |checkout, evaluator|
+        checkout.items = build_list(:checkout_item, evaluator.items_count, checkout: checkout)
       end
     end
   end

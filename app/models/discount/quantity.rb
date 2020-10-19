@@ -15,6 +15,10 @@ class Discount
       matching_items
     end
 
+    def rules
+      { product_id: product_id, quantity: quantity }
+    end
+
     private
 
     def product_exists

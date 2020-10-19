@@ -25,6 +25,10 @@ class Discount < ApplicationRecord
     end
   end
 
+  def rules
+    raise NotImplemented
+  end
+
   private
 
   def discount_amount_configured

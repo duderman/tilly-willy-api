@@ -28,4 +28,12 @@ RSpec.describe Discount::Total do
       it { is_expected.to eq([]) }
     end
   end
+
+  describe '#rules' do
+    subject { discount.rules }
+
+    let(:discount) { build(:total_discount) }
+
+    it { is_expected.to eq(sum: discount.sum) }
+  end
 end

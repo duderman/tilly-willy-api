@@ -15,5 +15,9 @@ class Discount
     def sum
       MoneyHelper.convert(sum_cents)
     end
+
+    def rules
+      { sum: sum }
+    end
   end
 end
