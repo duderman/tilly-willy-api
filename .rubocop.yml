@@ -15,3 +15,7 @@ Style/AsciiComments:
 
 RSpec/ImplicitSubject:
   Enabled: false
+
+Lint/MissingSuper:
+  Exclude:
+    - app/services/add_product_to_checkout.rb
