@@ -23,3 +23,7 @@ Lint/MissingSuper:
 Metrics/BlockLength:
   Exclude:
     - spec/**/*_spec.rb
+
+Rails/WhereExists:
+  Exclude:
+    - db/seeds.rb
