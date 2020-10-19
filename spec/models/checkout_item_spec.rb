@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe CheckoutItem do
   it { is_expected.to belong_to(:checkout).required }
   it { is_expected.to belong_to(:product).required }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCheckoutItems < ActiveRecord::Migration[6.0]
   def change
     create_table :checkout_items, id: :uuid do |t|
