@@ -9,6 +9,7 @@ class RecalculateDiscounts < ApplicationService
 
   def call
     reset_prices
+    reset_discounts
     apply_regular_discounts
     apply_total_discounts
     save_items
@@ -18,6 +19,10 @@ class RecalculateDiscounts < ApplicationService
 
   def reset_prices
     items.each { _1.price = _1.product.price }
+  end
+
+  def reset_discounts
+    items.each { _1.discount = nil }
   end
 
   def apply_regular_discounts
