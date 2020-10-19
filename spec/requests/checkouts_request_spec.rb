@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Checkouts', type: :request, with_errors_rendered: true do
+RSpec.describe 'Checkouts', type: :request do
   describe 'POST /' do
     subject { response }
 

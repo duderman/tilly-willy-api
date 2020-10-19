@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Items', type: :request, with_errors_rendered: true do
+RSpec.describe 'Items', type: :request do
   describe 'DELETE /:id' do
     subject { response }
 

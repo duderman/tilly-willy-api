@@ -17,5 +17,5 @@ RSpec.shared_context 'with errors rendered' do
 end
 
 RSpec.configure do |rspec|
-  rspec.include_context 'with errors rendered', with_errors_rendered: true
+  rspec.include_context 'with errors rendered', type: :request
 end
