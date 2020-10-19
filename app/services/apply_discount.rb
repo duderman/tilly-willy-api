@@ -20,7 +20,7 @@ class ApplyDiscount < ApplicationService
   end
 
   def apply(item)
-    item.discount_id = discount.id
+    item.discount = discount
     item.price = discount.calculate_price(item.price)
   end
 end

@@ -13,7 +13,7 @@ RSpec.describe Discount::Total do
     context 'when discount sum is lower than items sum' do
       let(:sum) { items.sum(&:price) - MoneyHelper.convert(1) }
 
-      it { is_expected.to eq([]) }
+      it { is_expected.to eq(items) }
     end
 
     context 'when discount sum is equal to items sum' do
@@ -25,7 +25,7 @@ RSpec.describe Discount::Total do
     context 'when discount sum is higher than items sum' do
       let(:sum) { items.sum(&:price) + MoneyHelper.convert(1) }
 
-      it { is_expected.to eq(items) }
+      it { is_expected.to eq([]) }
     end
   end
 end

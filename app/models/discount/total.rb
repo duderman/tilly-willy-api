@@ -7,7 +7,7 @@ class Discount
     validates :sum_cents, presence: true, numericality: { greater_than: 0, only_integer: true }
 
     def filter_items(items)
-      return [] if sum < items.sum(&:price)
+      return [] if sum > items.sum(&:price)
 
       items
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_085537) do
+ActiveRecord::Schema.define(version: 2020_10_19_151750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_10_19_085537) do
     t.jsonb "configuration", default: {}, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index "((configuration ->> 'product_id'::text))", name: "index_discounts_on_product_id"
+    t.index ["type"], name: "index_discounts_on_type"
   end
 
   create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
