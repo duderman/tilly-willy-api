@@ -8,8 +8,10 @@ class CheckoutModifier < ApplicationService
   end
 
   def call
-    modify_checkout
-    recalculate_discounts
+    in_transaction do
+      modify_checkout
+      recalculate_discounts
+    end
     checkout
   end
 
@@ -19,5 +21,9 @@ class CheckoutModifier < ApplicationService
 
   def recalculate_discounts
     RecalculateDiscounts.call(checkout.items)
+  end
+
+  def in_transaction(&block)
+    checkout.transaction(&block)
   end
 end
