@@ -1,6 +1,23 @@
 # frozen_string_literal: true
 
 RSpec.describe 'Checkouts', type: :request do
+  describe 'GET /:id' do
+    subject { response }
+
+    let(:checkout) { create(:checkout) }
+
+    before { get "/checkouts/#{checkout.id}" }
+
+    it { is_expected.to have_http_status(:success) }
+    its(:body) { is_expected.to eq(CheckoutSerializer.new(checkout).to_json) }
+
+    context "when checkout can't be found" do
+      let(:checkout) { build(:checkout, id: SecureRandom.uuid) }
+
+      it { is_expected.to have_http_status(:not_found) }
+    end
+  end
+
   describe 'POST /' do
     subject { response }
 

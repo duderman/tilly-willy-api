@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :products, only: :index
-  resources :checkouts, only: %i[create destroy] do
+  resources :checkouts, only: %i[create destroy show] do
     post :add, on: :member
 
     resources :items, only: :destroy

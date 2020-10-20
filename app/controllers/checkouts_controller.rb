@@ -19,6 +19,10 @@ class CheckoutsController < ApplicationController
     render json: @checkout
   end
 
+  def show
+    render json: @checkout
+  end
+
   private
 
   def checkout_id
